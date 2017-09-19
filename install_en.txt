@@ -1,0 +1,51 @@
+###########################################
+##	Cacti-Cluster für 0.8.8h Spine/Cacti
+###########################################
+
+
+Savety first! 
+Pleace make an backup from your database before testing the plugin.
+I get no warranty for currectly working of the plugin.
+Pleace try the plugin not on your hot systems.
+The plugin only worky on cacti version 0.8.8h on system unix
+
+###########################
+- Copy the the plugin in the cacti plugindirectory.
+
+- Under Plugin Management click on install an set an pollermaster.
+	This server ist now ready for polling an handle all plugins in cacti.
+	The function for enable and disable comming soon.
+
+- The following commands must run on terminal in cacti path:
+	sudo patch -p0 -b -N < plugins/multipollerserver/patches/update_multipollerserver_088h.patch 
+
+	This files are updatet
+	patching file poller.php
+	patching file lib/poller.php
+	patching file lib/api_poller.php
+
+	3 backupfiles become create.
+
+- Set Realm Permissions in usermanagement "Plugin -> Pollerserver: Configure".
+- Set any Pollerserver for polling devices.
+- Aktivate the Pollerserver.
+
+2 Ways to configurate the device <--> pollerserver.
+	First:
+	- Choose the device to an Pollerserver.
+		- On Management -> Device choose one Pollerserver from DropDown.
+	Second:
+	- Choose any devices from an devicelist.
+	! In this list are only devices how existing graphs.!
+		- On Management -> Multi-Pollerserver -> Choose Devices for Pollerserver
+		- Choose the devices and put them to an pollerserver.
+		
+
+	!!!!!!!!!!!!
+	The Mastersever has always the ID 2 an can not be delete from cacti
+
+Should be any problems than take an "Rebuild Poller Cache"
+
+
+Cu
+André

@@ -1,0 +1,51 @@
+###########################################
+##	Cacti-Cluster für 0.8.8h Spine/Cacti
+###########################################
+
+
+Ein Datenbackup wäre aus Sicherheitsgründen empfehlendswert.
+Ich übernehme auch keine Haftung wenn das jemand in seinem Prodsystem testet.!
+Diese Plugin ist nur für die Cactiversion 0.8.8h mit Betriebssystem Unix.
+
+
+###########################
+- Ordener in das Pluginverzeichnis kopieren
+
+- Im Pluginmanagement auf "install" klicken einen Pollermaster eingeben.
+		(Dieser ist nun auch als Poller einsetzbar und ist für alle Plugins und Einstellungen zuständig.)
+		Enable und Disable im Pluginmanagement set und löst den Fallbackmode.
+
+- Folgender Befehl muss über eine Konsole im Cacti-Path ausgeführt werden.
+
+	sudo patch -p0 -b -N < plugins/multipollerserver/patches/update_multipollerserver_088h.patch 
+
+	Diese Dateien werden gepatchet
+	patching file poller.php
+	patching file lib/poller.php
+	patching file lib/api_poller.php
+
+	Es wereden automatisch 3 Backupfiles angelegt.
+
+- Dann unter User Mangement einfach Plugin -> Pollerserver: Configure anhaken.
+- Dann unter Pollerserver einen Poller einfügen.
+- Den Poller mit der Checkbox aktivieren.
+
+
+Es gibt 2 Wege um die Geräte einem Pollerserver zuzuordnen.
+
+1. Zuordnung am Gerät
+	- Unter Device das DropDown Pollerserver einen Poller auswählen.
+
+2. Zuordnung mehrerer Geräte über eine List zu eine Pollerserver
+	! Hier tauchen nur Geräte auf bei denen shon Graphen geschrieben werden.!
+	- Unter Multi-Pollerser "Choose Devices for Pollerserver" wählen und Gertäte anhaken.
+
+
+!!!!!!!!!!
+Der Master kann auch nicht gelöscht werden (er brauch dringend die ID 2).
+
+
+- Zum Schluß eine Rebuild Poller Cache Lauf starten, dann sollte alles funktionieren.
+
+MfG
+André
