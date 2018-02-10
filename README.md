@@ -3,8 +3,8 @@
 /*******************************************************************************
 
     Author ......... Andre Leinhos
-    Contact ........ info@cacti-multipollerserver.de
-    Home Site ...... http://www.cacti-multipollerserver.de/
+    Contact ........ cacti.multipollerserver@gmail.com
+    Home Site ...... https://github.com/multipollerserver/Source
     Program ........ Multipollerserver
     Version ........ 0.8.8h
     Purpose ........ Base Plugin for Cacti Interoperability
